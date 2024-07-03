@@ -1,0 +1,191 @@
+Class Note 07/02/2024
+
+
+Today's topic:
+
+Selenium introduction(Continue)
+Maven Introduction
+
+Create Selenium Project 
+
+Write some basic automation tests (using java and selenium)
+
+------------------------------------------------------
+
+Apache Maven:
+
+What is Apache Maven(Maven) and do we need it as a Tester/SDETs?
+
+Maven is a build and project management tool.
+Maven is a build automation tool
+Maven is mainly used for java-based project (can be used with other languages)
+
+Maven helps us automate, create and manage projects
+pom.xml is one of the most important part of Maven Project.
+
+When we we create an automation project using Maven as Build system, it allows us to add all our dependencies in the pom.xml.
+
+When we need to download any tools/jar files such as Selenium we just add 
+Selenium dependency in pom.xml and maven downloads and stores all jar files for us. 
+Maven creates a folder called .m2 and store all jar files in that that folder.
+
+What jar file?
+JAR(Java Archive) file is a package file format that has many java class files and resources into one file.
+JAR file contains all interfaces, class, methods
+
+Maven allows us to add and manage all the dependencies in one file (pom.xml)
+
+
+What is Dependency?
+
+Dependency is an additional tool/JAR file that we add to our project
+
+For example selenium WebDriver is dependency that we need to have in order to run our automation code.
+
+
+Are there any other Build automation tools like Maven?
+
+Yes, there are the build automation tool like Maven such as Gradle, Ant etc..
+
+Maven is a build automation tool.
+Maven is build system
+-----------------
+
+
+Create Selenium project/automation framework using Maven as build system:
+
+1. IntelliJ IDEA click on File 
+2. Click on New -> Project
+3. Give project name 
+4. Select location (if you change the location)
+5. Build System -> select Mave
+6. Advance Setting -> group id -> com.ucodeacademy
+7. Click on Create
+
+
+mvnrepository is a central repository where we get all our dependencies for our project
+Go to mvnrepository -> https://mvnrepository.com/
+Search for Selenium Java
+
+-------------------------------
+
+
+How to run our Selenium automation test/code?
+
+Before we can run selenium automation test, we need to set up WebDriver.
+
+
+If we want to run our code in any browser, we need to set the WebDriver for that specific browser so our code can communicate the with browser through the driver.
+
+Browser is driver is used to connect our selenium java code to that specific browser.
+
+Syntax: WebDriver driver = new ChromeDriver();
+
+
+WebDriver Methods:
+
+get("url"); -> this method take url as String and navigate/opens the specified url in the browser.
+get(); -> this method is used to open/navigate to specified url
+
+get("url") is the first step/method we use to open url in browser
+
+getTitle(); this method is used to get the title of the current page as String
+
+String title = driver.getTittle();
+
+getCurrentUrl(); -> this method is used to get the url of current as String
+
+
+getPageSource(); -> this method is used to get the source of current page as 
+                    a String
+
+Page source is everything that is inside HTML tag 
+
+
+How to maximize the browser window?
+
+syntax: driver.manage().window().maximize();
+These method chaining is used to maximize browser window
+
+
+Selenium navigation/navigating forward/backward/refresh the page
+
+back(); this method takes goes to previous page
+forward(); this method goes forward
+refresh(); this method is used to refresh the page
+to("url"); navigates to given url (like get(), with a small difference)
+
+
+syntax:
+driver.navigate().back();
+driver.navigate().forward();
+driver.navigate.refresh();
+driver.to()
+
+We need to use some wait time so we can see what our code does
+Thread.sleep(3000); this java wait/sleep that we use to wait for specified time so we can see what our code does.
+
+
+close(); this method is used to close the current browser/tab, but it does not end the WebDriver session. If you have multiple tabs/windows that were open by the driver, it will close only one tab/window that the driver is in currently and does not end/kill the WebDriver session.
+
+
+quit(); this method is quit/close WebDriver session and close all browsers/tabs/windows
+
+close() vs quit():
+
+close() -> closes the current browser window that the WebDriver is in/controlling. It does not end the WebDriver session
+
+quit(); quits/closes all browser windows and completely end/terminate the WebDriver session.
+
+
+fullscreen(); -> this method is used to full screen your browser window. It puts the browser in full-screen mode.
+
+
+maximize() vs fullscreen():
+
+fullscreen() -> sets the browser in full-screen mode hiding all browser elements like tabs, minimize, maximize, close buttons
+
+maximize() -> maximizes the browser window but does not hide all browser elements like tabs, minimize, maximize, close buttons
+
+We mostly use maximize() in our testing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
