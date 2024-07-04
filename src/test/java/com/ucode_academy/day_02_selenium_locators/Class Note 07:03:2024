@@ -1,0 +1,128 @@
+Class Note 07/03/2024
+
+Package name -> day_02_selenium_locators
+
+Today's topic:
+
+Selenium Locators 
+findElement() method
+findElements() method (if we have enough time)
+click() method
+sendKeys() method
+
+----------------------------------------------------------------
+
+What is Selenium / Selenium WebDriver?
+Selenium is automation tool that we use to automate web based application.
+Selenium supports multiple programming languages such as Java, JS, Python etc..
+Selenium supports multiple operating system Mac, Windows, Linux
+Selenium support multiple browsers Chrome, FireFox, Safari, Edge etc..
+Selenium is an open source tool
+
+
+
+----------------------------------------------------
+
+What is Maven/Apache Maven?
+Maven is a build automation tool
+Maven helps us automate, create and manage project
+Maven is mainly used for java projects, and supports some other languages too
+
+pom.xml file is one of the import part of Maven, which allows to add and manage all our dependencies, plugins in one single file (pom.xml)
+
+
+Is Maven automation testing tool?
+
+No, it is not. Maven is build automation tool
+
+----------------------------------------------
+
+In order to interact with web application we need to locate web elements so Selenium can interact with Web application.
+
+In order to perform some action such as clicking, entering some text, we need to location the web element so selenium can perform the action on the web element.
+
+
+We locate Web element using locators.
+
+Locators:
+
+What is locator?
+
+Locator is way to identify elements on the page.
+We use locators to locate web element in the Web page.
+
+
+There 8 different type of locators in Selenium.
+
+1. ID -> to locate web element by its id -> id="id value"
+
+2. Name -> to locate web element by its name name="name value"
+
+3. Class Name -> to locate web element by its class name -> class="classValue"
+
+4. Link Text -> to locate web element by its link text -> <a>text</a>
+
+5. Partial Link Text -> to locate web element by partial link text -> 
+                       <a> link text </a>
+
+6. Tag name -> to locate web element by tag name -> <div>, <li> <ul>
+
+7. css selector -> to locate web element based on their styles and attribute
+
+8. xpath -> to locate web element by xpath
+   There are two types of xpath: Absolute xpath & Relative xpath
+
+
+----------------------------------------------------------
+
+Why do we need/use locator?
+Before our Selenium automation code can perform some action on the web page such as click, enter some text etc.. , we need to locate the web element using 1 of 8/any of 8 locators and then selenium can perform the action on locate web element.
+
+
+Web element anything that we see on the page.
+
+How to locate web element using any of those 8 locate?
+
+findElement(); -> this method is used to find and return a single web element
+                  and the return type is WebElement. If it does not find the web element it will throw NoSuchaElementException.
+                  If there more than one web element, it will find and return the first one.
+
+syntax: WebElement anyName = driver.findElement(By.id("id value"));
+
+findElement() method comes from WebDriver
+
+click();  is used to click on Web element, like clicking with your mouth
+
+
+
+-----------------------------------------------
+
+Locating web element by ID is always recommended, because ID is usually is unique for that specific Web Element.
+
+
+sendKeys("text"); -> this method takes String as parameter and enter/type 
+                     text in input/text area /input box
+
+
+Before using sendKeys("text") method we need to locate the input/filed and using this method to enter/type the text in it.
+
+e.g inputElemtn.sendKeys("username");
+
+
+
+getText(); this method is used to get the text of web element inner text ->
+           e.g <a> text </a>
+
+First we need to locate the web element and use this method to get its text 
+as a String, the return type is String
+
+getAttribute("attribute"); this method takes attribute as a parameter and returns its value as a String, return type is string
+
+
+
+
+
+
+
+
+
