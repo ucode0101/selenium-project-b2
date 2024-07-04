@@ -77,6 +77,8 @@ public class LoginToApplication2 {
 
         // locate log out button
         WebElement logoutBtn = driver.findElement(By.cssSelector(".button.secondary.radius"));
+        // we are using cssSelector to locate, because class has space in its values, it would
+        // throw an exception using by class name.
 
 
         // click on log out button to log out
