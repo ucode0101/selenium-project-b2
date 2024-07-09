@@ -118,11 +118,3 @@ as a String, the return type is String
 
 getAttribute("attribute"); this method takes attribute as a parameter and returns its value as a String, return type is string
 
-
-
-
-
-
-
-
-
