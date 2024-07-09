@@ -1,11 +1,9 @@
-package com.ucode_academy.day_03_locators_and_methods;
+package com.ucode_academy.day_03_locators_css_selector;
 
 import com.ucode_academy.base.TestBase;
 import com.ucode_academy.util.Wait;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LocateByTagName extends TestBase {
 

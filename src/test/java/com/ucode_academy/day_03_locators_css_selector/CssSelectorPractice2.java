@@ -1,4 +1,4 @@
-package com.ucode_academy.day_03_locators_and_methods;
+package com.ucode_academy.day_03_locators_css_selector;
 
 import com.ucode_academy.base.TestBase;
 import com.ucode_academy.util.Wait;

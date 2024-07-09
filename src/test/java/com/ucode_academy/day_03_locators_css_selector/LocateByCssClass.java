@@ -1,4 +1,4 @@
-package com.ucode_academy.day_03_locators_and_methods;
+package com.ucode_academy.day_03_locators_css_selector;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
