@@ -1,0 +1,88 @@
+Class Note 07/08/2024
+
+Package name -> day_03_locators_and_methods
+
+Today's topic:
+
+Locators continue:
+CSS intro
+XPath intro
+findElement() vs findElements()
+checkbox
+radio button
+isDisplayed()
+isEnabled()
+isSelected()
+click() vs submit()
+-----------------------------------------------------------------------
+
+What is locator?
+
+We use  locator to locate web element
+
+There are 8 different locators in Selenium:
+
+1. Name -> to locate web element by name 
+2. ID -> to locate web element by id 
+3. class name -> to locate web element by class
+4. link text -> to locate web element by link text -> <a href="link"> text</a>
+5. partial link text -> to locate web element by partial link text 
+                 -> <a href="link"> text</a>
+6. Tag name -> to locate web element by tag name
+
+7. CSS Selector -> to locate web element by css -> based on their style & 
+                    attribute
+
+8. Xpath -> to locate web element by xpath -> it has its own syntax & it 
+            allows you to create custom locator.
+There are two type of xpath: Absolute and Relative Xpath
+
+
+------------------------------------------------
+
+When locating the web element the recommended locator to use is ID, it the web element has ID.
+
+
+Locate Web element by CSS/CSS Selector:
+
+Locate by ID using CSS: -> tatName#idValue
+
+Locate By Class name using CSS: -> tagName.classValue
+
+Note: if class attribute value has space, you have to replace spaces with (.) dot, otherwise it won't find it.
+
+e.g -> div.large-4 large-centered columns replace
+   -> div.large-4.large-centered.columns
+
+
+Locate by any tagName including class and ID and its value using CSS:->
+tagName[attribute='value'] -> this will look for the tag name with matching attribute and attribute value
+
+
+When we use this syntax -> tagName[attribute='value'], we don't have to replace any space with dot in attribute value, even if it is a class
+
+----------------------------------------------------------
+
+When you locate web element using any of the locators, you have two option:
+
+1. You can locate & store it in WebElement and perform some action later on it.
+2. You can directly locate and perform some action without storing it
+
+
+Dynamic & Static Web Elements:
+
+Dynamic Web Elements keep changing every time the page is refreshed, and it is challenging to to locate them. 
+
+Static Web Elements do not keep changing.
+
+
+
+
+
+
+
+
+
+
+
+
