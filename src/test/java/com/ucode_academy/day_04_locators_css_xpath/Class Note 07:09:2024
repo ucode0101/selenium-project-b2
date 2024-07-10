@@ -1,0 +1,100 @@
+Class Note 07/09/2024
+
+Package name -> day_04_locators_css_xpath_continue
+
+Today's topic:
+
+Locators continue:
+CSS continue
+XPath intro
+findElement() vs findElements()
+checkbox
+radio button
+isDisplayed()
+isEnabled()
+isSelected()
+click() vs submit()
+Dynamic Web element, Static Web element
+
+--------------------------------------------------------
+
+
+Dynamic Web element, Static Web element:
+
+Dynamic Web Element -> when web element's values (attribute value) keeps changing, and it will hard to locate dynamic web element using any of 6 locator. We can use css sector or xpath to locate dynamic web element
+
+
+Static Web element -> Web element's value (attribute value) doesn't change
+
+There are 3 ways of locating Dynamic web element
+Starts with -> if start value is static
+Ends with  -> if end value is static
+Contains -> if it contains some static value
+
+If there are multiple result when you are locating web element by CSS Selector, you can use the following syntax to locate specified index element
+e.g  -> button[onclick^='button']:nth-of-type(3)
+
+To locate immediate child element in CSS:
+Tag>tag>tag -> div>div>h3
+
+To locate any child in CSS:
+
+Tag tag -> div p
+
+
+==============================================================================
+
+
+XPath: -> XPath is defined as XML path
+
+Xpath is one of the eight locators in Selenium that we use to locate web element.
+
+There two type of XPath: -> Absolute and Relative XPath:
+
+Absolute XPath starts with single forward slash / and we have to start from the very beginning /html:
+e.g -> /html/body/div/div/div/div/div/h3
+
+
+
+Relative XPath starts with double forward slash // and we can start from any tag with HTML DOM.
+
+To locate Web Element using Relative XPath:
+
+XPath Syntax: -> //tagName[@attributeName='attributeValue']
+
+ CSS Selector -> tagName[attributeName='attributeValue']
+
+Locate Web Element using XPath by known Value only
+
+//tagName[@*='attributeValue']
+
+Star (*) means ANY in xpath
+We can replace TagName with Star (*) also
+
+Locate Web Element using XPath by known Attribute 
+
+//*[@attributeName='value'] e.g -> //*[@href='/multiple_buttons']
+
+Even though we can use star (*) ANY for tag name or attribute name, it is better to use tag name and attribute name instead of using *
+
+Locate Web Element by Visible text using XPath:
+
+Two ways of locating web element by visible text using XPath:
+1. using text() & no @ e.g  -> //tag[text()='text']
+2. using dot (.) & no @ e.g -> //tag[.='text']
+
+
+Even using CSS Selector or XPath you cannot locate the web element directly
+Sometimes, you have to locate the web element and go to its sibling or go backward
+
+
+
+
+
+
+
+
+
+
+
+
