@@ -1,0 +1,120 @@
+Class Note 07/10/2024
+
+package name -> day_05_xpath_checkbox_radio
+
+Today's topic:
+
+XPath Continue
+findElement() vs findElements()
+checkbox
+radio button
+isDisplayed()
+isEnabled()
+isSelected()
+click() vs submit()
+Locate Dynamic Web elements with XPath
+
+TestNG Intro if we have time.
+
+---------------------------------------------------
+
+XPath locator allows us to locate web element that we cannot use other locator such ID, name, class name, tagName.
+
+Two type XPath:
+Absolute and Relative
+Absolute XPath start with single / and it start from very beginning of HTML
+It is not reliable to locate web element, because it will fail if there's a change in HTML structure -> /html/body/tag/tag/tag
+
+Relative starts with double // and you you can start from any tag
+ -> //tag//a[@href="value"] -> //ul//a[@href='/tables']
+
+
+The advantage of XPath is that it allows to locate web element by its visible
+XPath allows you go forward and backward.
+
+
+XPath allows us to use OR condition when we are locating web element
+XPath allows us to use AND condition when we are locating web element
+
+XPath allows us locate dynamic web element using contains, startsWith, EndsWith
+We can use contains, startsWith, &  EndsWith for text & attribute value
+
+locate web element contains
+//TagName[contains(text(),‘text’)]
+//TagName[contains(@Attribute,‘value’)]
+
+locate web element endsWith
+//TagName[ends-with(@Attribute,‘value’)]
+
+XPath allows you to select by index when there are more one result when you are locating web element
+
+//tag[@attribute='value'][1]
+(//tag[@attribute='value'])[1]
+
+
+Selenium Exception:
+All Selenium Exceptions are run time exception such as:
+NoSuchElementException -> when webDriver cannot locate the web element
+
+StaleElementReferenceException -> The page is refreshed after locate the web element and when we try to interact(click) with web element, the element is there but it is no longer attached to DOM, after the refreshed and that web element become outdated
+
+
+Sometimes we cannot locate the web element directly, so we need to go one or more step up/backward and/or forward to locate the web element
+
+Go up/backward with XPath: -> /..
+
+//tag[@attribute='value']/..
+
+
+Locate web element by index if there are more than one result: ->
+
+//ul/li[4]
+//tag[@attribute='value'][index]
+
+
+Locating Web element with multiple attributes/values ->
+//Tag[@attribute1=‘value1’] [@attribute2=‘value2’]
+
+Locate Web element with multiple attributes/values using AND condition
+AND logic applies in this formula, if both attributes matching then it will find element
+
+//TagName[@attribute1=‘value1’ and @attribute2=‘value2’]
+//a[text()='Form Authentication' and @href='/login']
+
+
+Locating Web Element with multiple attributes/values using OR condition
+OR logic applies in this formula, if one of the attributes matching then it 
+will find element (or elements)
+
+//TagName[@attribute1=‘value1’ or @attribute2=‘value2’] Keyword for multiple attributes
+
+Locate following sibling in XPath:
+
+//<knownXpath>/following-sibling::* -> goes to tag/element right under it
+ Or
+//<knownXpath>/following-sibling::Tag -> goes to given tag right under it
+Example: //button[@name='button2']/ following-sibling ::*
+
+-----------------------------------------
+
+findElement() vs findElements()
+
+findElement() -> is used to locate and return a single web element and the return type is WebElement. If it doesn't find the element, it will throw NoSuchElemetnException.
+
+findElement() -> To locate a single web element. Even if if finds more than one element element, it returns the first one
+
+findElements() -> is used to locate and return List of WebElement and the return type is List<WebElement>. If it doesn't find any Element, it will not throw any exception. 
+
+findElements() -> To locate multiple web element
+
+
+Why do we use/need findElements()?
+
+Lets we have a list of web elements, but we don't know which to click/interact with, 
+
+
+
+
+
+
+
