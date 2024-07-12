@@ -1,0 +1,127 @@
+Class Note 07/11/2024
+
+Package name -> day_06_checkbox_radio_button_dropdown
+
+Today's topic:
+
+
+checkbox
+radio button
+isDisplayed()
+isEnabled()
+isSelected()
+click() vs submit()
+Keys.ENTER 
+
+drop-down & select class (If we have enough time)
+
+
+--------------------------------------------------------
+
+
+When selecting/checking Checkbox, it allows you to check/select multiple check-boxes.
+Radio button does not allow you to select multiple radio buttons
+
+
+In Selenium WebDriver selecting radio button or checkbox is the same way of locating and clicking on any other web element.
+
+
+
+How to check if a checkbox or a radio button is checked/selected before clicking on?
+
+We can use isSelected() method to check.
+
+isSelected() method is used to check if a radio button or a check is selected, and it returns boolean.
+
+First we need to locate checkbox/radio button and use isSelected() method to check whether it is selected or not.
+
+
+isEnabled(); is used to check if radio button, checkbox, button, input fields is enabled or not. It returns boolean if it is enabled or not
+
+Sometimes there are radio button, checkbox, buttons, input fields are displayed on the web page/page, but they are not enabled, which means we cannot interact with them.
+
+isEnabled() -> returns true if radio button/checkbox/button/input is enable otherwise false
+
+
+isDisplayed() -> is used to check is button, link, text, radio button or any other web element is visible/displayed on the page or not
+
+isDisplayed() method is used to check if a web element(any web element) is visible/displayed on the page
+
+click() vs submit():
+
+click() method is used to click on links, button, radio button, check boxes or any other clickable web elements.
+
+submit() method is used to click on Login button, submit button, or another other button that is withing <form> tag.
+submit() button is like click() method, but only for form -> any button that is inside <form> </form> tag
+
+
+click() -> to click on any clickable links, buttons
+submit() -> to submit a form -> to click on buttons for form -><form></form>
+
+Keys is an enum that comes from selenium (we'll learn more in upcoming classes)
+
+How to hit Enter with Keys in selenium:
+Keys.ENTER -> is used to hit enter, it is like hitting Enter key on your keyboard.
+e.g -> elm.sendKey("text" + Keys.ENTER) -> send the key and hits the ENTER key
+it is like hitting enter key on your keyboard
+
+Key.ENTER goes inside sendKeys() methods
+
+----------------------------------------------------------------
+
+Drop downs:
+
+There are two type of Drop-downs:
+
+Select drop-down & HTML/Regular drop-down:
+
+1. Select drop-downs are created using <select> tag in HTML
+<select>
+	<option value='value'> text </option>
+	<option value='value'> text </option>
+
+</select>
+
+2. HTML/Other drop-downs are not created using <select> tags
+Handling/selecting none <select> drop-downs, we can just locate and click on them just like any other web element
+
+- you just locate want you want to pick/select from drop-down & click on it
+
+
+How to Handle/select from select drop-down:
+
+- We use Select class that comes from Selenium WebDriver
+
+1. We need to locate the select drop-down just like Web element
+2. Create an object of Select Class
+3. We need to pass located drop-down into Constructor of Select(locateElement)
+ e.g Select select = new Select(locateElement);
+
+There are few methods that come form Select class that we can use to select and interact with select drop-down
+
+3 way of selecting from Drop-down option:
+
+1. selectByVisibleText(); -> to select an option form drop-down by visible
+   text, the text within <option> visible text </option>
+   e.g select.selectByVisibleText("visible text")
+
+2. selectByIndex(); -> to select an option form drop-down by int index
+   e.g select.selectByIndex(index) -> it selects the option 
+
+3. byValue(); -> to select an option from drop-down by its attribute value
+   e.g  select.byValue("attributeValue") -> selects an option from drop-down
+   with the matching attribute value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
