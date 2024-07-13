@@ -1,0 +1,95 @@
+Class Note 07/12/2024
+
+Package name -> day_07_select_dropdown_testng_intro
+
+
+
+Today's topic:
+Drop-down & Select class continue
+TestNG Intro
+
+--------------------------------------------------
+
+There are type of drop-downs:
+HTML/Regular drop-down
+Select drop down
+
+For select drop-down, we use Select class that comes from Selenium WebDriver
+to handle select drop-down.
+
+
+There are 3 ways of to select an option from select drop-down
+
+1. selectByIndex(index) -> to select an option at the given index
+2. selectByVisibleText(text) -> to select an option by its visible text
+3. selectByValue(value) -> to select an option by its value's value
+
+Other select class methods:
+
+getFirstSelectedOption(); -> is used to get the selected option, default option
+getOptions(); -> is used to get all options from select drop-down as List of Web Element -> we can store them in List<WebElement> 
+
+
+Deselect from Multi-Select options:
+
+deSelectAll(); -> is used to deselect all selected options 
+deselectByIndex(index); -> is used to deselect option by its index from
+deselectByValue("value"); -> is used to deselect option by its value
+deselectByVisibleText("text"); is used to deselect option by its  visible text
+
+-----------------------------------------------------------
+
+First, We need to add TestNG dependency in our pom.xml file
+TestNG is an additional testing framework/tool that we use in our automation
+
+TestNG:
+
+TestNG -> Test Next Generation
+
+TestNG is test/testing framework for Java programming language
+
+TestNG is testing framework inspired by JUnit and NUnit, it is designed to covers tests such as Unit, Functional, End-to-End, and Integration testing
+
+
+TestNG uses annotation to specify test methods.
+
+TestNG annotations:
+
+@Test -> It marks/makes a method as test method
+
+We just create a method and give @Test on top that method, and that method will be as TestNG test, and we can run that method without the main method
+
+@Test
+public void testMethod(){
+	sout{"Hello"};
+}
+
+We can have multiple Test methods in one Java file/class just using @Test annotation
+
+Once you have multiple test method using @Test annotation, you can run each test method individually or all at once from the class level
+
+
+@BeforeMethod -> this annotated method runs Before each method in the class
+If you have 10 @Test method in the class, it will run 10 time
+
+
+@AfterMethod -> this annotated method runs After each method in the class
+If you have 10 @Test method in the class, it will run 10 time
+
+@BeforeClass -> this annotated method runs before the class
+                It run before everything in the class
+
+@AfterClass -> this annotated method runs after the class
+               It runs after everything in the class
+
+TestNG tests run in alphabetical/ascending order based on method names
+If we want/need to prioritize our tests like which to run first, which one to run second, etc.. We can prioritize our test using priority helper
+
+To prioritize the execution order of your test:
+@Test(priority=1)
+@Test(priority=2)
+
+When we use priority/set priority, our test will run in ascending based on priority numbers
+
+
+
