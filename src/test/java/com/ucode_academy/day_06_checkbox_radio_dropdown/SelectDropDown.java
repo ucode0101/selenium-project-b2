@@ -1,4 +1,4 @@
-package com.ucode_academy.day_06_checkbox_radio_button_dropdown;
+package com.ucode_academy.day_06_checkbox_radio_dropdown;
 
 import com.ucode_academy.base.TestBase;
 import com.ucode_academy.util.Wait;
