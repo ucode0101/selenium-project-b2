@@ -37,9 +37,11 @@ public class GetFirstSelectedOption extends TestBase {
         Select select2 = new Select(language);
 
         // try to getFirstSelectedOption() for none selected option
-        String str3 = select2.getFirstSelectedOption().getText();
-        System.out.println(str3);
+        //String str3 = select2.getFirstSelectedOption().getText();
+        //System.out.println(str3);
 
+        select.selectByValue("1");
+        System.out.println(select.getAllSelectedOptions());
         Wait.waitForGivenTime(2);
         driver.quit();
 

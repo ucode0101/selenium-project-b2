@@ -1,0 +1,211 @@
+Class Note 	07/15/2024
+
+package name -> day_08_testng_synchronization
+
+Today's topic:
+
+TestNG:
+Annotations
+Hard assert & Soft Assert
+DependsOnMethods
+Priority attribute
+invoactionCount
+ignore
+
+
+Synchronization:
+Implicit wait & Explicit wait
+
+-------------------------------------------------------
+
+
+TestNG -> Test Next Generation
+
+TestNG is a test automation framework/tool
+TestNG is a popular Java-Base framework that is used for Unit Test.
+
+
+@Test annotation is the most common used annotation in TestNG
+This annotation is used to make your method as a test method, and it allows you to run your test method without having the main method.
+
+
+How to ignore/exclude a test in TestNG?
+Let's you have 5 tests, and you want to ignore/exclude 1 or 2 of them
+
+1. @Ignore annotation is used to ignore any test
+We just place/put this annotation on a top of @Test that we want to ignore and that @Test will be ignored.
+
+2. We simply remove @Test annotation from the method that we want to ignore/exclude
+
+
+
+TestNG tests run in alphabetical/in ascending order bu default.
+If we want to Prioritize our execution/the order of execution, we can use priority attribute/helper to prioritize the execution order
+
+
+e.g -> @Test(priority=1)
+
+
+
+
+DependsOnMethods
+
+Let's say every time you do some testing, first you have to login to application. That means you testing dependence on login, if the login doesn't work you won't be able to do any test.
+
+DependsOnMethod attribute/helper is used to depend a certain test on other test, we can use use DependOnMethod to do it.
+If the method that is depending on the execution of other test method, it will run only if that test method passes. If that test method fails the depending test will be ignored
+
+
+e. g  @Test
+      public void login(){
+        System.out.print("testing")
+      }
+
+      // this test runs if login test passes, else will be ignored
+      @Test(dependsOnMethods = "login")
+      public void test1(){
+        System.out.print("testing")
+      }
+
+
+
+How to run a test for specific amount of time?
+How to run @Test for 10 or 50 times in TestNG?
+
+We can use invoactionCount attribute/helper to run a Test for x number of times
+
+@Test(invoactionCount = 10) -> this test runs 10 times
+
+
+-----------------------------------------------------
+
+TestNG Assertion: Hard assert & Soft Assert
+
+
+TestNG assertions allow to do our assertion/verification/validation in our tests
+
+Assert class comes from TestNG and it allows us to do our verification between actual and expected result.
+Assert class is hard assert, that means if assertion fails it stop the execution where it fails and continue to the next test method
+
+- If assertion passes there will be no output in the console
+- If assertion fails, it tells us what failed and why
+- Assert class provides us with all the assertion
+
+Assert class assertion methods: Hard assert
+
+Assert.assertTrue() -> It takes boolean condition, and message, if it fails the message will be printed on the console
+
+Assert.assertTrue() -> it passes if the condition is true
+
+Assert.assertFalse() -> It takes boolean condition, and message, if it fails the message will be printed on the console
+
+Assert.assertFalse() -> it passes if the condition is false
+
+Assert.assertTrue() -> expects the condition to be true
+Assert.assertFalse() -> expects the condition to be false
+
+
+Assert.assertEquals() -> it takes 3 parameters, Actual, Expected and the 
+                         message (message is optional)
+
+If the assertion fails the message will be print on the console
+
+
+Assert.assertEquals() -> it expects the actual to be equal to expected
+
+To fail some test manually/explicitly
+Assert.fail() -> this assertion method is used to fail a test manually
+
+All assertion that come from Assert class are Hard assert
+
+Hard assert: if assertion fails, it will stop the execution of the current test in the same line where it failed, and it will move to the next test and start the that one (if we have more test or other code)
+
+--------------------------------------------
+Soft Assertion/verify
+
+Using soft assert, we have to create an object from SoftAssert class, and call the assertion methods.
+
+SoftAssert softAssert = new SoftAssert();
+
+All assertion methods of Soft Assert & Hard Assert work the same
+
+The difference between Hard Assert & Soft Assert
+- Hard assert stops -> if assertion fails, it will stop the execution of the current test in the same line where it failed.
+
+- Soft assert -> if assertion fails, it will Not stop the execution of the current test in the same line where it failed, it continues
+
+- Hard Assert assertion methods are static and come from Assert class
+- SoftAssert assertion methods are instance methods and come from SoftAssert
+
+
+Using soft assert, we can use assertAll() to see our assert result at the end 
+
+
+-------------------------------------------------------------------------
+
+Synchronization:
+
+Implicit wait & Explicit wait
+
+
+In Selenium WebDriver Waits are called synchronization.
+
+We need to synchronize our WebDriver and the browser 
+
+Since our code/WebDriver runs/goes faster than the browser, we need to apply some different type of wait at different point of in our program.
+
+When Selenium WebDriver/our code runs/works faster than the browser/application, we will get different time of Exception. For example when we try to locate some web element before the browser/application is loaded properly, we'll get exception. To ensure that our code and the browser/application run/work at the same we use waits to avoid our code from running
+
+
+
+
+We use Thread.sleep(10000); -> Java code to stop the execution for given time
+
+There 3 type of waits in Selenium WebDriver:
+
+1. Implicit Wait
+2. Explicit Wait
+3. Fluent Wait
+
+
+Implicit Wait is set once and it will apply automatically every time trying to locate web element using findElement() method, if the web element is not available, implicit wait applies automatically and wait for the given time before throwing NoSuchElementException.
+
+syntax: driver.manage().timeouts().implicitlyWait(Duration.ofSeconde(10));
+
+driver.findElement(By.xpath("value")) -> if the element that we are trying to locate is not immediately available, implicit wait applies/triggers automatically and wait for web element to be available before it throws Exception. If it finds the element it doesn't wait for remaining time.
+
+
+
+Explicit Wait:
+
+Explicit works different compare to implicit wait, using explicit wait we have to create an object from WebDriverWait class, and apply it explicitly for specif we element and specific condition
+
+Syntax: WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+
+wait.until(ExpcetedConditions.titleIs("string"));
+
+Every time if you want to use explicit wait, you have to call it explicitly and specify expected condition, and it will wait until specified condition is met
+
+ExpectedConditions methods/of explicit wait:
+
+- titleIs("String"); waits until title is equal to given String
+- titleContains("String"); waits until title contains to given String
+- alertIsPresent(); wait until JavaScript alert is present
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
