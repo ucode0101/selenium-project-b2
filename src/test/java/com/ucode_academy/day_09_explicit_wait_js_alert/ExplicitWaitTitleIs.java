@@ -1,4 +1,4 @@
-package com.ucode_academy.day_09_waits_js_aler_iframe_window;
+package com.ucode_academy.day_09_explicit_wait_js_alert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

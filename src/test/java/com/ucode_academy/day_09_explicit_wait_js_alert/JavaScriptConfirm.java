@@ -1,4 +1,4 @@
-package com.ucode_academy.day_09_waits_js_aler_iframe_window;
+package com.ucode_academy.day_09_explicit_wait_js_alert;
 
 import com.ucode_academy.util.Wait;
 import org.openqa.selenium.Alert;
@@ -10,8 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class JavaScriptAlert {
-
+public class JavaScriptConfirm {
     WebDriver driver;
     @BeforeMethod
     public void setUp(){
@@ -26,19 +25,28 @@ public class JavaScriptAlert {
     }
 
     @Test
-    public void jsAlert(){
+    public void jsConfirm(){
         driver.get("https://www.practice-ucodeacademy.com/javascript_alerts");
 
-        WebElement jsAlert = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
+        WebElement jsConfirm = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
+        jsConfirm.click();
 
-        jsAlert.click();
         Wait.waitForGivenTime(3);
+
         Alert alert = driver.switchTo().alert();
 
-        System.out.println(alert.getText());
+        // get the alert text
+        String text = alert.getText();
+        System.out.println(text);
+        alert.accept(); // accepting the alert/click on Ok
+        //alert.dismiss(); // dismissing the alert/click on Cancel
 
-        alert.dismiss();
-        //alert.accept();
+        // or we can switch to Alert directly and Accept/dismiss
+        //String s = driver.switchTo().alert().getText();
+        //System.out.println(s);
+        //driver.switchTo().alert().accept();
+        //driver.switchTo().alert().dismiss();
+
 
     }
 }

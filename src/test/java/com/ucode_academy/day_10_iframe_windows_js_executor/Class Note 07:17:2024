@@ -1,0 +1,100 @@
+Class Note 07/17/2024
+
+package name -> day_10_iframe_windows_js_executor
+
+Today's topic:
+
+Explicit wait for alert
+iframe nested frame
+windows/tabs
+
+If we have time:
+Upload file & download file (if we have enough time)
+JavaScript Executor
+
+----------------------------------------------------
+
+Sometimes it takes some time for JavaScript to appear, and when we try to handle it before it appears, will get and Exception.
+
+How to wait for JavaScript alert to be present before handling it?
+We can use explicit to wait until JavaScript is present.
+
+When you try to handle JS alert before it is present, you get NoAlertPresentException
+
+----------------------------------------------------------
+
+Iframe/frame is an HTML page inside of another HTML page
+In order to locate some web element inside an Iframe, we need to switch to that. Iframe/frame is created using <iframe> tag.
+
+
+
+clear(); -> this method is used to clear/delete the text/input from the input box / input filed
+
+
+
+Steps to locate and switch the driver to iframe:
+
+1. You can locate the iframe using any locator and swithTo().
+2. Switch to iframe with id (iframe id)
+3. Switch to iframe with index
+
+driver.switchTo().frame(element/id/index);
+
+When you try driver.switchTo().frame(); if the iframe is not available, you will get NoSuchFrameException
+
+
+When you switch to Iframe, the driver stays inside that frame, and cannot focus or interact with any web element outside of that frame.
+
+When we are done interacting with that frame, we need to switch back to parentFrame().
+
+
+Iframe/frames can also be nested, meaning a frame can have multiple frames inside it.
+
+If you want to switch to nested iframe/frame, you need to switch to the parent first and then switch to its child frame
+
+driver.switchTo().parentFrame() vs driver.switchTo().defaultContent();
+
+driver.switchTo().parentFrame() -> 
+switch the driver to parent frame/ switch the driver one frame up
+
+driver.switchTo().defaultContent() ->
+switch the driver to the main frame/HTML from any frame or nested frame
+
+---------------------------------------------------------
+
+Multiple windows/tabs:
+
+For Selenium WebDriver there is no difference between tab or window
+every tab/window is a separate window/tab
+Selenium WebDriver can focus and control one windows at a time.
+When we click on some link/button that opens a new window/tab WebDriver cannot focus/interact with newly opened window/tab.
+
+We can switch to window/tab that is opened by WebDriver using window handle.
+Every time a window/tab is opened a randomly unique id called 'window handle' is generate.
+For each window/tab a randomly generated unique "window-handle" is created.
+That is like ID for that window/tab.
+
+We can use those "windows-handles" to switch between tab/windows
+
+getWindowsHandle(); -> this method is used to get the current window/tab 
+                      "window-handle" (it is like id)
+                      Return type String
+
+getWinodowHandles(); -> this method is used to get all "Window-handles" that are currently opened by WebDriver as Set<String> 
+
+Once we have the window, we can switch to that window
+driver.switchTo().window(window handle);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
