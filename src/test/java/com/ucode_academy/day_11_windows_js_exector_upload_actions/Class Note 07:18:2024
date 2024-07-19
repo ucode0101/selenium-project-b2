@@ -1,0 +1,110 @@
+Class Note 07/18/2024
+
+package name -> day_11_windows_js_exector_upload_actions
+
+Today's topic:
+Multi Windows/tabs continue
+Keys (ENTER, CLEAR, BACKSPACE)
+Upload file & download
+JavaScript Executor
+Actions class Intro
+
+-------------------------------------------------------
+
+Multiple windows/tabs:
+
+Sometime when click on link or button it will open a new tab/window
+Selenium WebDriver cannot focus/interact with any other windows/tab except the current windows that the is in.
+In order to interact/work with other windows/tabs that was open by current driver, we need to switch the driver to that window/tab so it can focus/interact with that window/tab.
+
+
+getWindowHandle(); -> this method is used to get the window-handle
+                      return type String
+getWindowHandles(); -> this method is used to get all window-handles
+                       return type Set<String>
+
+
+
+How to switch/handle/work with multiple tabs/windows in Selenium?
+
+To handle work with multiple tabs, we use getWindowHandle() & getWindowHandles() to work with multiple tabs.
+
+How to go to specific tab in selenium?
+
+Use getWindowHandles() method to get all window-handle (ID) to store in 
+Set<String> & loop through & use some condition to break from the loop and the driver will stay in that tab.
+
+
+sendKeys("java" + Keys.BACK_SPACE); -> 
+it is like clicking back space on your keyboard
+
+
+
+Upload file & download:
+
+How to upload file in Selenium WebDriver?
+
+To upload file, you need to locate upload/choose file web element, and use sendKeys("path to your file"), send to the location of file as string, and click on upload button
+
+
+How to download file in Selenium WebDriver?
+
+To download file/files, you can locate a downloadable link and click on it, but you cannot verify the file was download, where it was download because WebDriver can only focus withing the browser.
+
+
+---------------------------------------------------------
+
+Actions Class:
+
+Action class comes from Selenium that allows us to do advance mouse and keyboard actions
+such as:
+
+clickAndHold();
+dragAndDrop();
+moveToElement(); (hover over)
+contextClick(); (right click)
+and more
+
+In order to use Actions class's method, we need to create and object from Actions class and pass the driver into new Actions(driver) constructor
+Syntax: Actions action = new Actions(driver);
+
+Now we can use action object to call those those method to perform some action
+
+
+When call any method from Actions class, we need to use perform() method at the so the can perform the action.
+
+action.contextClic().perform(); -> to do right click
+
+Before we can perform any action on webElement, we need to locate the web element and then use/call the method to perform the action on the element
+
+You must use perform() method at the of any method that you call from actions, other the that call will not perform the action.
+
+Until Selenium 3, you had to use build().perform() at the of any method that you call from actions, other the that call would not perform the action.
+
+Now, using build() is optional
+
+Actions class methods:
+
+contextClick(element); -> is used to right click on given web element
+
+doubleClick(element); -> is used to double click on given web element
+
+dragAndDrop(elm1, elm2); is used to drag and drop elm1 to elm2
+
+
+moveToElement(element); is used to hover over the given element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
