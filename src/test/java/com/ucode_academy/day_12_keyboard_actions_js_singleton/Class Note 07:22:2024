@@ -1,0 +1,133 @@
+Class Note 07/22/2024
+
+Package name -> day_12_keyboard_actions_js_singleton
+
+Today's topic:
+
+Run test in Firefox & Safari
+Basic authentication (how to handle basic authentication)
+Action Class - Keyboard actions
+JavaScript Executor
+
+If we have time:
+Singleton Design Pattern - Singleton Class
+Config Reader Class & properties file
+
+----------------------------------------------------------------
+
+Running test in any browser works the same
+
+Basic Authentication:
+Some website/web applications might be protected by basic authentication.
+To handle basic authentication you need to provide your username and password withing the URL to authenticate yourself.
+
+Basic Auth/Authentication in handled by providing username and password withing the URL.
+
+
+
+e.g -> https://admin:admin@www.practice-ucodeacademy.com/basic_auth
+
+---------------------------------------------------
+
+
+Action Class - Keyboard actions
+
+Actions class allows us to perform advance mouse and keyboard actions, such as Right click (context click), hover over, drag and drop, scroll down/up, press keys and more
+
+
+To hold/press any key using actions, you need to use:
+keyDown(Keys.SHIFT) -> This method is used to pres/hold the given Keys
+
+Whenever you use keyDown() method to perform some action, you have to release using keyUp() method, otherwise it keeps hold down the key (whatever key it was pressing/holding)
+
+
+To perform any mouse or keyboard actions in Selenium, user Actions class
+
+keyDown() & keyUp() methods are used to hold & release keys on your keyboard
+
+--------------------------------------------------------
+
+JavaScriptExecutor Interface:
+
+JavaScriptExecutor allows us to execute javaScrip code in our Selenium.
+
+Sometime we cannot interact with web element using selenium locator, or when we want to interact with page or web element.
+
+For example when a web element is hidden, we cannot interact with it using selenium locators
+
+
+To use JavaScriptExecutor we need to Cast WebDriver type to JavaScriptExecutor type.
+
+
+
+syntax: JavaScriptExecutor js = (JavaScriptExecutor) driver;
+
+js.executeScript("javaScript code", web element); -> this method takes javaScript code as a String and webElement and executes the javaScript code
+
+Using JavaScriptExecutor we can perform clicking on element, getting the text of web element, scroll down/up and more
+
+
+The most common way of using JavascriptExecutor is when the web element is hidden or there is something is interrupting to interact with that web element
+
+Using JavaScriptExecutor, you can scroll down or up to specif web element
+locate the element and use js to scroll up/down to where the web element is on the page
+
+
+--------------------------------------------------------------
+
+Singleton Design Pattern - Singleton Class
+
+
+Singleton Design Pattern -> is to use a single instance of a class.
+
+The whole idea of Singleton Design Pattern is to use one WebDriver instance for the whole project. We create a Driver class and create a private constructor to prevent creating an object from that class and we use one instance of WebDriver for the whole project.
+
+
+--------------------------------------------------------
+
+.properties file -> configuration.properties file
+
+The .properties file is used to store all the data that we need for testing
+such as URL, browser, credential etc...
+It is mainly used for configuration
+We use this to configure the environment, store credentials, etc..
+We store data in .properties file based on key & value
+
+
+To create .properties file:
+
+1. Right click on project name
+2. New -> File -> file configuration.properties (extension i .properties)
+3. store some data/information based on key & value
+  e.g -> url="www.google.com"
+
+
+
+
+Read/get the data from .properties file:
+
+1. Create a java class -> ConfigurationsRead.java/ConfigReader.java
+
+2. Create the path to the file
+
+3. Create an object from Properties class
+
+4. Open the file using FileInputStream
+
+5. Load the file into the properties object
+
+6. Read/get the values using getProperty() method
+
+
+
+
+We create Singleton and ConfigReader class under the util package
+
+
+
+
+
+
+
+
+
