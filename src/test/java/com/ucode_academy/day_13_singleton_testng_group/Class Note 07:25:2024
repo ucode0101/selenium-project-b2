@@ -1,0 +1,158 @@
+Class Note 07/25/2024
+
+Package name -> day_13_singleton_testng_group
+
+Today' topic:
+
+configuration.properties
+Singleton Design Pattern (Singleton)
+Configuration Reader class
+Run test in different browser
+Run chrome-headless 
+
+TestNG:
+Install 'Create TestNG XML' plugin
+Create testng.xml file, Group tests, generate html report
+
+--------------------------------------------------
+
+.properties file: is used to store and the data that we need for testing
+such as username, password, browser name, url etc..
+It is mainly used for configuration, to configure the environment credentials etc..
+
+
+We store data based on key & value in .properties file
+
+
+Reading/getting the data from .properties file
+1. Create a Java class under util/utility package (ConfigReader)
+2. Create an object from Properties class (private static)
+3.Create the path of the file as a string (.properties file path)
+4. Open the file using FileInputStream Class
+5. Load the file into the properties object
+6. Read/Get the value using getProperty() method
+
+
+
+
+Why do we/you need/use store data in .properties file?
+Image you have 200 test cases, and you want to run them in different environment/url, you need to go to each test and change the url manually
+.properties file allows us to store our data in one central place and control from one place.
+
+
+
+---------------------------------------------------
+
+
+Singleton design pattern also called Singleton or Singleton Class
+
+Singleton is the approach to use only one instance of the class for the whole project.
+
+To make the class singleton/prevent creating an object from the class, we give private constructor
+
+
+
+The whole idea of Singleton is use one instance of the class for the whole project.
+
+
+In our case, we make the driver class singleton and make sure to one driver instance for the whole project
+
+
+We create the Driver class under util/utility package
+
+Create Singleton class under util package:
+
+1. Create a java class name it Driver
+2. Create a private constructor
+3. Create/declare private static WebDriver
+4. Create public static getDriver method (getter method)
+5. Use if/switch statement to setup the driver based on the condition
+
+and enjoy it :)
+
+
+what is chrome-headless?
+Chrome headless runs in the background/behind the scene.
+You don't see the actually browser, but it runs in the background
+
+When you run your tests in headless mode, it is faster because it doesn't have to deal with loading the browser, etc..
+
+-------------------------------------------------------
+
+
+TestNG - group tests:
+
+TestNG allows us to group and run our tests as a group 
+
+@Test(groups="group name") ->allows us to group and run our tests as a group 
+
+We can group multiple tests using and them as a group using testng.xml file
+
+We can run classes, tests as a group, run parallel from testng.xml file, it also allows us to include & exclude classes, method when running test
+
+Before grouping and running our tests as a group, we need to install a plugin called -> Create TestNG XML
+
+How to create testng.xml file:
+
+Option 1: 
+Go to setting -> plugins -> and search for Create TestNG XML ->
+Install/Enable the plugin and follow the step:
+
+Right click on your project name or any package name under your project -> select Create TestNG option it will create testng.xml
+
+After that you can modify/update the file as you need
+
+
+Option 2:
+Create a new file name it nestng.xml
+
+
+testng.xml file allows us to run our test directly from the file, It allows us to include/exclude/ run tests in parallel and more
+
+
+group allows us to run any test method/class from any package
+
+
+How to include or exclude tests in TestNG?
+
+Use include & exclude tags in your testng.xml file
+
+
+-------------------------------------------------------------
+
+When we run our automation tests, we generate test report like how many test ran, how many failed etc...
+
+TestNG (testng.xml) allows us to generate report
+
+How to create Email-able HTML Report:
+
+1. Click on Run option in IntelliJ IDE
+2. Edit Configuration -> Select Listers -> cick on Add(plus) icon
+3. Search for Emailable HTML/Reporter -> select EmailableReporter2
+4. click apply & OK
+5. it will create -> test-output package and stores reports in it
+
+
+-------------------------------------------------------------------
+
+In automation, When you run your tests some test will fail if you want or not
+
+When you run 100 tests, and 10 of them fail, how do you reran/run the failed tests only?
+
+You can use/add TestNG FailedReport.
+
+1. Click on Run option in IntelliJ IDE
+2. Edit Configuration -> Select Listers -> cick on Add(plus) icon
+3. Search for FailedReporter -> select 
+4. click apply & OK
+5. it will create -> test-output package and stores reports in it
+
+NOTE:
+You can also add Emailable HTML/Reporter & FailedReporter directly in your testng.xml file withis <suit> 
+
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+
+
