@@ -1,0 +1,128 @@
+Class Note 07/26/2024
+
+Package name -> day_14_testng_parallel_data_driven_testing
+
+Today's topic:
+Generate HTML test report 
+Parallel testing
+DataProvider (Data Driven Testing)
+Expected Exception
+
+Selenium Exceptions
+
+---------------------------------------------------------
+
+
+When we run our automation test, we need to generate some kind of report
+how many test passed, failed etc.. 
+
+TestNG allows us to generate HTML test report (basic report)
+
+Singleton Design pattern (Singleton) -> To make sure to use a single/one driver instance for the whole project
+
+Advantage of Singleton is to make sure no additional instance are created
+
+
+ConfigReader class -> is used to get/read the data from .properties file
+
+.properties -> is used to store and manage the data in one place
+
+testng.xml file allows us to run our classes/test methods in parallel, group them, include or exclude them.
+
+
+@Test(groups="groupName") -> and then we use the group name in textng.xml file to include or exclude tests based on their group names
+
+
+-------------------------------------
+
+Parallel Testing:
+
+Parallel testing is run your tests in parallel
+lets say we have 100 test to run, if we run them one at a time it will take 100 minute, but if we run them at 10 at a time it will take to 10 minutes to complete
+
+Parallel testing is when you increase the number of machines/tester to reduce the execution time
+
+TestNG/testng.xml file allows us to run our classes, tests in parallel
+
+We use parallel attribute in testng.xml file and we can specify how many tests to run in parallel
+
+Data driven testing?
+
+Data driven testing is when you get your test data from external resource
+Data driven testing is when your code and your data are separated
+
+Data driven testing allows us to run the same test with different test data
+for example we can run the the same test in different environment/URL
+
+TestNG DataProvider:
+@DataProvider(name = "name") -> this marks a method a data source
+
+
+
+It allows us to provide data to our test methods. 
+It is useful when you want to run the same test with different 
+
+TestNG DataProvider is used to achieve data driven testing
+
+
+TestNG DataProvider allows us to parameterize our test
+
+Parametrization -> allows us to pass the data from @DataProvider and run/execute the same test with different data sets by taking the data from @DataProvider (data source)
+
+Data-Driven testing also called DDT -> is used to run same test with different data sets
+
+------------------------------------------------
+
+
+Expected Exception:
+expectedException is used to tell/let TestNG know that we are expecting the specified exception so it can ignore that exception when it occurs/happens not fail when that exception happens/occurs
+
+The expected Exception can be any Exceptions not only Selenium related one
+This only applies/works with Run Time Exception
+
+When we are expecting some exception, or if we simply want to ignore any exception we can expectedException to ignore it
+
+--------------------------------------------
+
+
+Selenium Exceptions:
+
+All Selenium Exceptions are run time exception.
+
+NoSuchElementException:
+-> When the driver cannot locate the web element (for any reason)
+-> org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element:
+
+NoSuchWindowException:
+-> When we use driver.switchTo().window("windowHandle"), and it cannot locate/find window/tab to switch
+-> org.openqa.selenium.NoSuchWindowException: no such window
+
+
+
+NoSuchFrameException:
+-> when we use switchTo().frame(frame); and it cannot locate/find the frame
+
+-> org.openqa.selenium.NoSuchFrameException: no such frame
+
+NoAlertPresentExcecption:
+-> When we switch to alert, but the alert is not present
+-> org.openqa.selenium.NoAlertPresentException: no such alert
+
+
+StaleElementReferenceException:
+-> When we try to interact with the web element, but the reference to an
+   element no longer valid because the element is no longer part of the DOM
+
+-> When the page is refreshed after locate the web element, and when we try to interact with web element we get this exception
+
+-> org.openqa.selenium.StaleElementReferenceException: stale element 
+   reference: stale element not found
+
+
+
+ElementNotVisisbleException:
+-> When we try to interact with web element that is available not not visible/displayed
+
+
+
+

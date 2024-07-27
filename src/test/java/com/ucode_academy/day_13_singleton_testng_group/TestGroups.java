@@ -1,5 +1,6 @@
 package com.ucode_academy.day_13_singleton_testng_group;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestGroups {

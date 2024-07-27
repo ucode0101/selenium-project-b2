@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suit">
+<suite name="Test Suite" parallel="methods" thread-count="1">
     <test verbose="2" preserve-order="true" name="Test">
         <groups>
 
             <run>
 
-              <!-- <include name="smokeTest"/>  - It runs/includes tests with matching group name-->
-               <include name="test1"/> <!-- It runs/includes tests with matching group name-->
-
-                <!--   <exclude name="smokeTest"/> It  does Not run/includes tests with matching group name-->
-
+                <exclude name="smokeTest"/>
                 <exclude name="smokeTest2"/>
+
+                <exclude name="dailyTest"/>
+
+                <include name="test1"/>
 
             </run>
 
@@ -25,10 +25,4 @@
 
 
     </test>
-
-<!--    If you want to add any listeners in this directly -->
-<!--    <listeners>-->
-<!--        <listener class-name="org.testng.reporters.EmailableReporter2"/>-->
-<!--        <listener class-name="org.testng.reporters.FailedReporter"/>-->
-<!--    </listeners>-->
 </suite>
